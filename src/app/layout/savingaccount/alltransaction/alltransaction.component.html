@@ -1,0 +1,104 @@
+<div class="card">
+    <div class="card-body">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800 page-title">All Transaction<span>Control Pannel</span></h1>
+                <ol class="breadcrumb text-xs bg-transparent">
+                    <li><i class="fas fa-fw fa-tachometer-alt"></i><a href="#" class="text-gray-700">Home</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li><a href="#" class="text-gray-700">Customer</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li class="active text-gray-500">Transaction</li>
+                </ol>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- DataTales Example -->
+                    <div class="bg-white shadow border-top-green mb-4">
+
+
+
+
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <button type="button" class="btn btn-warning btn-sm" routerLink="/dashboard"><i class="fa fa-reply-all pr-2" aria-hidden="true"></i>Back</button>
+                                <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times pr-2" aria-hidden="true"></i>Multiple Delete</button>
+                                <button type="button" class="btn btn-info btn-sm" routerLink="/savingaccount/deposit"><i class="fa fa-plus pr-2" aria-hidden="true"></i>Make Deposite</button>
+                                <button type="button" class="btn btn-info btn-sm" routerLink="/savingaccount/withdraw"><i class="fa fa-plus pr-2" aria-hidden="true"></i>Withdraw Money</button>
+                                <button type="button" class="btn btn-info btn-sm"><i class="fa fa-envelope pr-2" aria-hidden="true"></i>Send SMS</button>
+                                <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-print pr-2" aria-hidden="true"></i>Print</button>
+
+                                <button type="button" class="btn btn-success btn-sm "><i class="fa fa-paper-plane pr-2" aria-hidden="true"></i>Export Excel</button>
+                                <button type="button" class="btn btn-success btn-sm "><i class="fa fa-file-pdf pr-2" aria-hidden="true"></i>Export Pdf</button>
+
+
+                            </div>
+                            <hr class="mp-4 mt-4">
+                            <div class="table-responsive mt-4">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" name=""></th>
+                                            <th>TaxId</th>
+                                            <th>T_Type</th>
+                                            <th>AcctNo.</th>
+                                            <th>FName</th>
+                                            <th>LName</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Amount</th>
+                                            <th>Date/Time</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- <tfoot>
+                      <tr>
+                        <th><input type="checkbox" name=""></th>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </tfoot> -->
+                                    <tbody>
+                                        <tr *ngFor="let newdata of transactions">
+                                            <td><input type="checkbox" #myItem (change)="OnCheckboxSelect(newdata, $event)" name="item-{{newdata.id}}"></td>
+                                            <td>{{newdata.TaxId}}</td>
+                                            <td>{{newdata.T_Type}}</td>
+                                            <td>{{newdata.AcctNo}}</td>
+                                            <td>{{newdata.FName}}</td>
+                                            <td>{{newdata.LName}}</td>
+                                            <td>{{newdata.Email}}</td>
+                                            <td>{{newdata.Phone}}</td>
+                                            <td>{{newdata.Amount}}</td>
+                                            <td>{{newdata.Time}}</td>
+                                            <td><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-print " aria-hidden="true"></i>
+                                                {{newdata.Action}}</button></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+</div>

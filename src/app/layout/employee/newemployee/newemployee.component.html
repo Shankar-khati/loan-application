@@ -1,0 +1,188 @@
+<div class="card">
+    <div class="card-body">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800 page-title">New Employee<span>Control Pannel</span></h1>
+                <ol class="breadcrumb text-xs bg-transparent">
+                    <li><i class="fas fa-fw fa-tachometer-alt"></i><a href="#" class="text-gray-700">Home</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li><a href="#" class="text-gray-700">New Employee</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li class="active text-gray-500">Add</li>
+                </ol>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 mb-4">
+
+                    <!-- Project Card Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0"><i class="fa fa-user pr-2" aria-hidden="true"></i>New Employee</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="user">
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right"><label>Your Image {{ imagename }}</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="file" [(ngModel)]="imagename" class="form-control form-control-user border-0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Full Name{{firstname}} </label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" minlength="4" maxlength="24" [(ngModel)]="firstname" placeholder="Full Name" class="form-control form-control-user" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Email</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="email" [(ngModel)]="emailname" email placeholder="Email" class="form-control form-control-user" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Mobile Number</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="phone" placeholder="Mobile Number" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Address 1</label></div>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" name="message" [(ngModel)]="textarea" style="height: 100px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Address 2</label></div>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" name="message" [(ngModel)]="textarea1" style="height: 100px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>City</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="cityname" placeholder="City" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>State</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="statename" placeholder="State" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Zip Code</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="zipcode" placeholder="Zip Code" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-4">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Select Borrower {{Borrower}}</label></div>
+                                        <div class="col-lg-10 ">
+                                            <select class="form-control form-control-user" [(ngModel)]="Borrower" (change)="getBorrower($event.target.value)">
+                                      <option *ngFor="let ln of Borrowers " [value]="ln.id">{{ln.name}}</option>
+
+                                  </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Country </label></div>
+                                        <div class="col-lg-10 ">
+                                            <select class="form-control form-control-user" [(ngModel)]="Country" (change)="getCountry($event.target.value)">
+                                      <option *ngFor="let ln of Countrys " [value]="ln.id">{{ln.name}}</option>
+                                      
+                                  </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Comment</label></div>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" name="message" [(ngModel)]="comment" style="height: 100px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <hr class="mp-4 mt-4" />
+                                <div class="bg-warning pl-2 text-white">Admin LOGIN INFORMATION</div>
+                                <hr class="mp-4 mb-4" />
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>User Name</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="username" placeholder="User Name" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Password</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="password" [(ngModel)]="Password" placeholder="Password" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Confirm Password</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="password" [(ngModel)]="ConfirmPassword" placeholder="Confirm Password" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <hr class="mp-4 mt-4" />
+                                <div class="row">
+                                    <div class="col-lg-12 text-right">
+                                        <button type="button" (click)="onReset()" class="btn btn-info btn-sm"><i class="fa fa-times pr-2" aria-hidden="true"></i>Reset</button>
+                                        <button type="button" (click)="onSave()" class="btn btn-success btn-sm"><i class="fa fa-save pr-2" aria-hidden="true"></i>Save</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+</div>

@@ -1,0 +1,145 @@
+<div class="card">
+    <div class="card-body">
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800 page-title">List of Borrowers<span>Control Pannel</span></h1>
+                <ol class="breadcrumb text-xs bg-transparent">
+                    <li><i class="fas fa-fw fa-tachometer-alt"></i><a href="#" class="text-gray-700">Home</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li><a href="#" class="text-gray-700">Borrowers</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li class="active text-gray-500">List</li>
+                </ol>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- DataTales Example -->
+                    <div class="bg-white shadow border-top-green mb-4">
+                        <div class="card-body">
+
+                            <form class="user">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right"><label>Your Image {{ imagename }}</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="file" [(ngModel)]="imagename" name="message" class="form-control form-control-user border-0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Account Number</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="account" placeholder="Account Number" name="message" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Full Name </label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="firstname" name="message" placeholder="Full Name" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Last Name </label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="lastname" name="message" placeholder="Last Name" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Email</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="email" [(ngModel)]="emailname" email placeholder="Email" name="message" class="form-control form-control-user" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Mobile Number</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="phone" placeholder="Mobile Number" name="message" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Address 1</label></div>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" name="message" [(ngModel)]="textarea" name="message" style="height: 100px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Address 2</label></div>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" name="message" [(ngModel)]="textarea1" name="message" style="height: 100px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>City</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="cityname" name="message" placeholder="City" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>State</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="statename" placeholder="State" name="message" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Zip Code</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" [(ngModel)]="zipcode" name="message" placeholder="Zip Code" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Comment</label></div>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" name="message" [(ngModel)]="comment" style="height: 100px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 text-right">
+                                        <button type="button" (click)="onReset()" class="btn btn-info btn-sm"><i class="fa fa-times pr-2" aria-hidden="true"></i>Reset</button>
+                                        <button type="button" (click)="onSave()" class="btn btn-success btn-sm"><i class="fa fa-save pr-2" aria-hidden="true"></i>Save</button>
+                                    </div>
+                                </div>
+                            </form>
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+</div>

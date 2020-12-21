@@ -1,0 +1,97 @@
+<nav [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }" class="sidebar custom-navigation">
+    <div class="list-group">
+
+        <!-- Sidebar - Brand -->
+        <div class="pb-2 pt-2">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <img src="../../../../assets/images/logo-admin.png" />
+                </div>
+                <div class="sidebar-brand-text mx-3">admin<span class="user-status"><span></span>Online</span>
+                </div>
+            </a>
+        </div>
+        <!-- Divider -->
+
+        <div *ngFor="let sideBarItem of sideBarElement">
+            <a *ngIf="!sideBarItem.nestedMenu" [routerLinkActive]="['router-link-active']" class="list-group-item" routerLink="/{{sideBarItem.route}}">
+                <i class="fa fa-fw {{sideBarItem.icon}}"></i>&nbsp;
+                <span>{{sideBarItem.name}}</span>
+            </a>
+
+            <div *ngIf="sideBarItem.nestedMenu" class="nested-menu">
+                <a (click)="addExpandClass(sideBarItem.route)" class="list-group-item">
+                    <i class="fa {{sideBarItem.icon}}"></i>&nbsp;
+                    <span>{{sideBarItem.name}}</span>
+                </a>
+                <li style="margin-left : -15px" [class.expand]="showMenu === sideBarItem.route" class="nested">
+                    <ul class="submenu">
+                        <li *ngFor="let nestedItem of sideBarItem.nestedItems">
+                            <a (click)="updateRoute()" [routerLinkActive]="['router-link-active']" class="list-group-item" routerLink="/{{nestedItem.route}}">
+                                <i class="fa {{nestedItem.icon}}"></i>&nbsp;
+                                <span>{{nestedItem.name}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+
+
+
+
+        </div>
+
+        <!-- <a [routerLinkActive]="['router-link-active']" class="list-group-item" routerLink="/staffs">
+            <i class="fa fa-fw fa-users"></i>&nbsp;
+            <span>{{ 'Staff Members' | translate }}</span>
+        </a>
+        <a [routerLinkActive]="['router-link-active']" class="list-group-item" routerLink="/roles">
+            <i class="fa fa-fw fa-key"></i>&nbsp;
+            <span>{{ 'Roles and Permissions' | translate }}</span>
+        </a>
+        <a [routerLinkActive]="['router-link-active']" class="list-group-item" routerLink="/modules">
+            <i class="fa fa-fw fa-sitemap"></i>&nbsp;
+            <span>{{ 'Modules' | translate }}</span>
+        </a>
+        <a [routerLinkActive]="['router-link-active']" class="list-group-item" routerLink="/questions">
+            <i class="fa fa-fw fa-question-circle"></i>&nbsp;
+            <span>{{ 'Profile Questions' | translate }}</span>
+        </a> -->
+
+        <div class="header-fields">
+            <div class="nested-menu">
+                <a (click)="addExpandClass('profile')" class="list-group-item">
+                    <span><i class="fa fa-user"></i>&nbsp; {{user.name}}</span>
+                </a>
+                <li [class.expand]="showMenu === 'profile'" class="nested">
+                    <ul class="submenu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a (click)="onLoggedout()" [routerLink]="['/login']">
+                                <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </div>
+    <div (click)="toggleCollapsed()" [ngClass]="{ collapsed: collapsed }" class="toggle-button">
+        <i class="fa fa-fw fa-angle-double-{{ collapsed ? 'right' : 'left' }}"></i>&nbsp;
+        <span>{{ 'Collapse Sidebar' | translate }}</span>
+    </div>
+</nav>

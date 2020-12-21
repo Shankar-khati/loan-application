@@ -1,0 +1,134 @@
+<div class="card">
+    <div class="card-body">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800 page-title">List of Payments<span>Control Pannel</span></h1>
+                <ol class="breadcrumb text-xs bg-transparent">
+                    <li><i class="fas fa-fw fa-tachometer-alt"></i><a href="#" class="text-gray-700">Home</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li><a href="#" class="text-gray-700">Payment</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li class="active text-gray-500">List</li>
+                </ol>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- DataTales Example -->
+                    <div class="bg-white shadow border-top-green mb-4">
+
+
+
+
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <button type="button" class="btn btn-warning btn-sm" routerLink="/dashboard"><i class="fa fa-reply-all pr-2" aria-hidden="true"></i>Back</button>
+                                <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times pr-2" aria-hidden="true"></i>Delete</button>
+                                <button type="button" class="btn btn-info btn-sm" routerLink="/payments/new"><i class="fa fa-dollar-sign pr-2" aria-hidden="true"></i>New Payment</button>
+                                <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-print pr-2" aria-hidden="true"></i>Print Payments</button>
+
+                                <button type="button" class="btn btn-success btn-sm "><i class="fa fa-paper-plane pr-2" aria-hidden="true"></i>Export Excel</button>
+
+                            </div>
+                            <hr class="mp-4 mt-4">
+                            <div class="table-responsive mt-4">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" name=""></th>
+                                            <th>Id</th>
+                                            <th>Customer</th>
+                                            <th>Loan</th>
+                                            <th>Balance</th>
+                                            <th>Amount to Pay</th>
+                                            <th>Date</th>
+                                            <th>Teller</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- <tfoot>
+                      <tr>
+                        <th><input type="checkbox" name=""></th>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </tfoot> -->
+                                    <tbody>
+                                        <tr *ngFor="let newdata of Paymentdata">
+                                            <td><input type="checkbox" #myItem (change)="OnCheckboxSelect(newdata, $event)" name="item-{{newdata.id}}"></td>
+                                            <th>{{newdata._id}}</th>
+                                            <td>{{newdata.Customer}}</td>
+                                            <td>{{newdata.Loan}}</td>
+                                            <td>{{newdata.Balance}}</td>
+                                            <td>{{newdata.AmounttoPay}}</td>
+                                            <td>{{newdata.date}}</td>
+                                            <td>{{newdata.Teller}}</td>
+                                            <td><button type="button" class="btn btn-info btn-sm"><i class="fa fa-eye " aria-hidden="true"></i>
+                                                {{newdata.Actions}}</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- DataTales Example -->
+                    <div class="bg-white shadow  border-top-info mb-4">
+                        <div class="col-lg-12">
+                            <button class="btn btn-primary btn-info text-uppercase btn-block mt-3">Number of Loan Aplicants 1</button>
+                        </div>
+                        <!-- Pie Chart -->
+                        <div class="col-xl-12 col-lg-12 mt-4">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4 pb-2">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                        <i class="fas fa-circle text-primary"></i> Direct
+                      </span>
+                                        <span class="mr-2">
+                        <i class="fas fa-circle text-success"></i> Social
+                      </span>
+                                        <span class="mr-2">
+                        <i class="fas fa-circle text-info"></i> Referral
+                      </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+    <a routerLink="/" class="navbar-brand">NIR Loan </a>
+    <!-- <a class="navbar-brand" href="#">SB Admin Angular9 BS4 </a> -->
+    <button (click)="toggleSidebar()" class="navbar-toggler" type="button">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <i aria-hidden="true" class="fa fa-bars text-muted"></i>
+    </button>
+    <div class="collapse navbar-collapse">
+
+        <ul class="navbar-nav ml-auto">
+
+            <!-- <li class="nav-item">
+                <a
+                    (click)="rltAndLtr()"
+                    class="nav-link mt-1"
+                    href="javascript:void(0)"
+                    style="padding: 0.375rem 1rem !important; border-color: #999;"
+                >
+                    RTL/LTR
+                </a>
+            </li> -->
+            &nbsp;
+            <li class="nav-item dropdown" ngbDropdown>
+                <a (click)="openNotification()" class="nav-link" href="javascript:void(0)" ngbDropdownToggle>
+
+                    <!-- <i class="fa fa-bell"></i> -->
+
+                    <i class="fa fa-bell"></i>
+                    <div *ngIf="notifyBadge" class="txt"></div>
+
+                    <!-- <span class="fa-stack fa-1x">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+                        <span class="badge">17</span>
+                    </span> -->
+                    <!-- <b class="caret"></b>
+                    <span class="sr-only">(current)</span> -->
+                </a>
+                <ul style="width: 300px;
+                overflow: auto;
+                height: 300px;" class="dropdown-menu-right messages" ngbDropdownMenu>
+                    <span style="margin-left: 10px;">Notification</span>
+                    <hr style="margin: 0px 0px;" />
+                    <div *ngFor="let item of notifications">
+                        <li routerLink="/{{item.url}}{{item.url === 'booking' ?  '/'+item.moduleId : '' }}" class="media" style="background: #E8E8E8; border: solid white; border-radius: 1px;">
+                            <i class="d-flex align-self-center mr-3 fa fa-bell fa-2x"></i>
+                            <div class="media-body">
+                                <h5 class="mt-0 mb-1">{{item.title}}</h5>
+                                <span style="text-align: right; display: block; font-size: 10px; padding-right: 5px;" class="small text-muted"><i class="fa fa-clock-o"></i>
+                                    {{item?.createdAt | timeAgo}}
+                                </span>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown" ngbDropdown>
+                <a class="nav-link" href="javascript:void(0)" ngbDropdownToggle>
+                    <i class="fa fa-user"></i> {{user.name}} <b class="caret"></b>
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}
+                    </a>
+                    <a (click)="onLoggedout()" [routerLink]="['/login']" class="dropdown-item">
+                        <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

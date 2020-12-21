@@ -1,0 +1,240 @@
+<div class="card">
+    <div class="card-body">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800 page-title">New Loans<span>Control Pannel</span></h1>
+                <ol class="breadcrumb text-xs bg-transparent">
+                    <li><i class="fas fa-fw fa-tachometer-alt"></i><a href="#" class="text-gray-700">Home</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li><a href="#" class="text-gray-700">Loan</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li class="active text-gray-500">Add</li>
+                </ol>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 mb-4">
+
+                    <!-- Project Card Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+
+                        </div>
+                        <div class="card-body">
+                            <form class="user">
+
+
+                                <div class="form-group mt-4">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Borrower</label></div>
+                                        <div class="col-lg-10 ">
+                                            <select class="form-control form-control-user" name="Borrower" [(ngModel)]="Borrower" (change)="getBorrower($event.target.value)">
+                                      <option *ngFor="let ln of Borrowers" [value]="ln.id"> {{ln.name}}</option>
+                                      
+                                  </select>{{Borrower1}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Account</label></div>
+                                        <div class="col-lg-10 ">
+                                            <select class="form-control form-control-user" name="Account" [(ngModel)]="Account" (change)="getAccount($event.target.value)">
+                                      <option  *ngFor="let ln of Accounts" [value]="ln.id">{{ln.name}}</option>
+
+                                  </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Amount</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" name="Amount" [(ngModel)]="Amount" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Description</label></div>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" name="Description" [(ngModel)]="Description" style="height: 100px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Email</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="Email" name="Email" [(ngModel)]="Email" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Date Release</label></div>
+                                        <div class="col-lg-10">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" for="example"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                                </div>
+                                                <input placeholder="dd-mm-yyyy" type="text" name="Release" [(ngModel)]="Release" class="form-control" />
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" for="example"><i class="fa fa-fw fa-calendar" aria-hidden="true" for="example"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Agent</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control form-control-user" name="Agent" [(ngModel)]="Agent" value="admin" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="mp-4 mt-4" />
+                                <div class="bg-warning pl-2 text-white">GUARANTOR INFORMATION</div>
+                                <hr class="mp-4 mb-4" />
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Guarantor's Passport</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="file" class="form-control form-control-user border-0" name="Passport" [(ngModel)]="Passport" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Realationship</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control form-control-user" name="Realationship" [(ngModel)]="Realationship" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Guarantor's Name</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control form-control-user" name="Guarantor" [(ngModel)]="Guarantor" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Guarantor's Phone Number</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control form-control-user" name=" PhoneNumber" [(ngModel)]="PhoneNumber" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Guarantor's Address</label></div>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" style="height: 120px;" name=" Address" [(ngModel)]="Address"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Status</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" value="pending" name=" Status" [(ngModel)]="Status" class="form-control form-control-user" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Remarks</label></div>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" name=" Remarks" [(ngModel)]="Remarks" style="height: 100px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="mp-4 mt-4" />
+                                <div class="bg-warning pl-2 text-white">PAYMENT INFORMATION</div>
+                                <hr class="mp-4 mb-4" />
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Current Balance</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" name=" Balance" [(ngModel)]="Balance" class="form-control form-control-user" value="0.00" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Payment Date</label></div>
+                                        <div class="col-lg-10">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" for="example"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                                </div>
+                                                <input placeholder="dd-mm-yyyy" type="text" name=" PaymentDate" [(ngModel)]="PaymentDate" id="example" class="form-control" />
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" for="example"><i class="fa fa-fw fa-calendar" aria-hidden="true" for="example"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Amount to Pay</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control form-control-user" name=" AmounttoPay" [(ngModel)]="AmounttoPay" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>TellerBy</label></div>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control form-control-user" name="TellerBy" [(ngModel)]="TellerBy" value="admin" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-2 text-right text-green"><label>Remarks</label></div>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" name="Remarksid" [(ngModel)]="Remarksid" style="height: 100px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="mp-4 mt-4" />
+                                <div class="row">
+                                    <div class="col-lg-12 text-right">
+                                        <button type="button" (click)="onReset()" class="btn btn-info btn-sm"><i class="fa fa-times pr-2" aria-hidden="true"></i>Reset</button>
+                                        <button type="button" (click)="onSend()" class="btn btn-success btn-sm"><i class="fa fa-save pr-2" aria-hidden="true"></i>Save</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+</div>

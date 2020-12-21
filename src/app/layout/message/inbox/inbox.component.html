@@ -1,0 +1,81 @@
+<div class="card">
+    <div class="card-body">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800 page-title">My Inbox<span>Control Pannel</span></h1>
+                <ol class="breadcrumb text-xs bg-transparent">
+                    <li><i class="fas fa-fw fa-tachometer-alt"></i><a href="#" class="text-gray-700">Home</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li><a href="#" class="text-gray-700">My Mail</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li class="active text-gray-500">Index</li>
+                </ol>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- DataTales Example -->
+                    <div class="bg-white shadow border-top-green mb-4">
+
+
+
+
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <button type="button" class="btn btn-warning btn-sm" routerLink="/dashboard"><i class="fa fa-reply-all pr-2" aria-hidden="true"></i>Back</button>
+                                <button type="button" class="btn btn-info btn-sm" routerLink="/message/outbox"><i class="fas fa-envelope pr-2" ></i>Outbox Message</button>
+                                <button type="button" class="btn btn-success btn-sm" routerLink="/message/new"><i class="fas fa-envelope pr-2"></i>New Message</button>
+                            </div>
+                            <hr class="mp-4 mt-4">
+                            <div class="table-responsive mt-4">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" name=""></th>
+                                            <th>Subject</th>
+                                            <th>Sender Name</th>
+                                            <th>Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- <tfoot>
+                      <tr>
+                        <th><input type="checkbox" name=""></th>
+                        <th>Hello</th>
+                        <th>test</th>
+                        <th>2017-05-01 14:46:57</th>
+                        <th></th>
+  
+                      </tr>
+                    </tfoot> -->
+                                    <tbody>
+
+                                        <tr *ngFor="let olddata of inboxdata">
+                                            <td><input type="checkbox" #myItem (change)="OnCheckboxSelect(olddata, $event)" name="item-{{olddata.id}}"></td>
+                                            <td>{{olddata.subject}}</td>
+                                            <td>{{olddata.senderName}}</td>
+                                            <td>{{olddata.date}}</td>
+
+                                            <td><button type="button" class="btn btn-info btn-sm"><svg _ngcontent-pqx-c133="" aria-hidden="true" class="svg-inline--fa fa-eye fa-w-18" focusable="false" data-prefix="fa" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"></path></svg><!-- <i _ngcontent-pqx-c133="" aria-hidden="true" class="fa fa-eye"></i> --> view</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+</div>

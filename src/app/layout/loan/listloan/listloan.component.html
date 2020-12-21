@@ -1,0 +1,100 @@
+<div class="card">
+    <div class="card-body">
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800 page-title">List of Loans<span>Control Pannel</span></h1>
+                <ol class="breadcrumb text-xs bg-transparent">
+                    <li><i class="fas fa-fw fa-tachometer-alt"></i><a href="#" class="text-gray-700">Home</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li><a href="#" class="text-gray-700">Loan</a><i class="fas fa-fw fa-angle-right"></i></li>
+                    <li class="active text-gray-500">List</li>
+                </ol>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- DataTales Example -->
+                    <div class="bg-white shadow border-top-green mb-4">
+
+
+
+
+                        <div class="card-body">
+                            <div class="mb-2">
+                                <button type="button" class="btn btn-warning btn-sm" routerLink="/dashboard"><i class="fa fa-reply-all pr-2" aria-hidden="true"></i>Back</button>
+                                <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times pr-2" aria-hidden="true"></i>Multiple Delete</button>
+                                <button type="button" class="btn btn-success btn-sm" routerLink="/borrowers/new"><i class="fa fa-plus pr-2" aria-hidden="true"></i>Add Borrower</button>
+                                <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times pr-2" aria-hidden="true"></i>Overdue: 0</button>
+                                <button type="button" class="btn btn-info btn-sm"><i class="fa fa-print pr-2" aria-hidden="true"></i>Print</button>
+                                <button type="button" class="btn btn-success btn-sm"><i class="fa fa-paper-plane pr-2" aria-hidden="true"></i>Export Excel</button>
+
+
+                            </div>
+                            <hr class="mp-4 mt-4">
+                            <div class="table-responsive mt-4">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" name=""></th>
+                                            <th>Kind of Loan</th>
+                                            <th>Account</th>
+                                            <th>Descriptions</th>
+                                            <th>Amount</th>
+                                            <th>Balance</th>
+                                            <th>Customer</th>
+                                            <th>Agent</th>
+                                            <th>Approve By</th>
+                                            <th>Date Release</th>
+                                            <th>Payment Date</th>
+                                            <th>Approve Status</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- <tfoot>
+                      <tr>
+                        <th><input type="checkbox" name=""></th>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </tfoot> -->
+                                    <tbody>
+                                        <tr *ngFor="let rawdata of loandata">
+                                            <td><input type="checkbox" #myItem (change)="OnCheckboxSelect(rawdata, $event)" name="item-{{rawdata.id}}"></td>
+                                            <td>{{rawdata.KindofLoan}}</td>
+                                            <td>{{rawdata.account}}</td>
+                                            <td>{{rawdata.description}}</td>
+                                            <td>{{rawdata.amount}}</td>
+                                            <td>{{rawdata.balance}}</td>
+                                            <td>{{rawdata.borrower}}</td>
+                                            <td>{{rawdata.agent}}</td>
+                                            <td>{{rawdata.tellerBy}}</td>
+                                            <td>{{rawdata.release}}</td>
+                                            <td>{{rawdata.paymentDate}}</td>
+                                            <td><span class="bg-warning btn-sm text-white">{{rawdata.ApproveStatus}}</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+</div>
